@@ -1,58 +1,30 @@
-console.log('hello');
-// Function expression
-let myFunc = function () {
-  console.log('This is a statement');
-};
-myFunc();
+let firstVal = 5;
+let secondVal = "5";
 
-// Function declaration
-function myNewFunc(name, weather = 'raining') {
-  console.log('Hello ' + name + '.');
-  console.log('It is ' + weather + ' today.');
+if (firstVal === secondVal) {
+  console.log('they are same');
+} else {
+  console.log('they are not same');
 }
-myNewFunc('Lavakesh');
-// Rest parameter is used to handle extra arguments passed to a function
-let myFunc1 = function (name, weather, ...extraArgs) {
-  console.log('hello ' + name + '.');
-  console.log('It is ' + weather + ' today');
-  for (let i = 0; i < extraArgs.length; i++) {
-    console.log('Extra Args: ' + extraArgs[i]);
-  }
-};
-myFunc1('Lavakesh', 'raining', 'one', 'two', 'three');
-let myFunc2 = function (name) {
-  return 'Hello ' + name;
-};
-console.log(myFunc2('Lavakesh'));
-// Arrow functions
-let myFunc3 = (nameFunction) => ('Hello ' + nameFunction() + '.');
-console.log(myFunc3(() => 'Lavakesh3'));
 
-let messageFunction = function (name, weather) {
-  var message = 'hello, Adam';
-  if (weather == 'sunny') {
-    var message = 'It is a nice day';
-  }
-  else {
-    var message = 'It is ' + weather + ' today';
-    console.log(message);
-  }
-  console.log(message);
-};
-messageFunction('Lavakesh', 'Raining');
+// array
+let myArray = new Array();
+myArray[0] = 100;
+myArray[1] = 'Lavakesh';
+myArray[2] = true;
+console.log(myArray);
 
-// closure example
-let closFunc = function (name) {
-  let myLocalVar = "sunny";
-  let innerFunction = function () {
-    return ('Hello ' + name + '. Today is ' + myLocalVar + '.');
-  }
-  return innerFunction();
-};
-console.log(closFunc('Lavakesh'));
+let anArray = [100, 'Lavakesh', false];
+console.log(anArray);
 
-// boolean types
-let firstBool = false;
-let secondBool = true;
-console.log(firstBool);
-console.log(secondBool);
+anArray.forEach((value, index) => console.log('Index ' + index + ': ' + value));
+
+let products = [
+  { name: "Hat", price: 24.5, stock: 10 },
+  { name: "Kayak", price: 289.99, stock: 1 },
+  { name: "Soccer Ball", price: 10, stock: 0 },
+  { name: "Running Shoes", price: 116.50, stock: 20 }
+];
+let totalValue = products.filter(item => item.stock > 1)
+                  .reduce((prev, item) => prev + (item.price * item.stock), 0);
+console.log(totalValue);
