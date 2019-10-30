@@ -1,30 +1,21 @@
-let firstVal = 5;
-let secondVal = "5";
+// Chapter 5 starts
+let myData = new Object();
+myData.name = 'Adam';
+myData.weather = 'sunny';
+console.log('Hello ' + myData.name + '.');
+console.log('Today is ' + myData.weather + '.');
 
-if (firstVal === secondVal) {
-  console.log('they are same');
-} else {
-  console.log('they are not same');
-}
-
-// array
-let myArray = new Array();
-myArray[0] = 100;
-myArray[1] = 'Lavakesh';
-myArray[2] = true;
-console.log(myArray);
-
-let anArray = [100, 'Lavakesh', false];
-console.log(anArray);
-
-anArray.forEach((value, index) => console.log('Index ' + index + ': ' + value));
-
-let products = [
-  { name: "Hat", price: 24.5, stock: 10 },
-  { name: "Kayak", price: 289.99, stock: 1 },
-  { name: "Soccer Ball", price: 10, stock: 0 },
-  { name: "Running Shoes", price: 116.50, stock: 20 }
-];
-let totalValue = products.filter(item => item.stock > 1)
-                  .reduce((prev, item) => prev + (item.price * item.stock), 0);
-console.log(totalValue);
+// object literal format
+let myData1 = { name: 'Lavakesh', weather: 'sunny' };
+console.log('Hello ' + myData1.name + '. ');
+console.log('Today is '+ myData1.weather + '.');
+// methods : functions defined on an object
+let myData3 = {
+  name: 'Lavakesh',
+  weather: 'raining',
+  printMessages: function(){
+    console.log('Hello ' + this.name + '.');
+    console.log('It is ' + this.weather + '.');
+  }
+};
+myData3.printMessages();
