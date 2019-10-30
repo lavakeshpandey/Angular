@@ -24,9 +24,35 @@ let myFunc2 = function (name) {
   return 'Hello ' + name;
 };
 console.log(myFunc2('Lavakesh'));
-let myFunc3 = function(nameFunction){
-  return ('Hello ' + nameFunction() + '.');
+// Arrow functions
+let myFunc3 = (nameFunction) => ('Hello ' + nameFunction() + '.');
+console.log(myFunc3(() => 'Lavakesh3'));
+
+let messageFunction = function (name, weather) {
+  var message = 'hello, Adam';
+  if (weather == 'sunny') {
+    var message = 'It is a nice day';
+  }
+  else {
+    var message = 'It is ' + weather + ' today';
+    console.log(message);
+  }
+  console.log(message);
 };
-console.log(myFunc3(function() {
-  return 'Lavakesh3';
-}));
+messageFunction('Lavakesh', 'Raining');
+
+// closure example
+let closFunc = function (name) {
+  let myLocalVar = "sunny";
+  let innerFunction = function () {
+    return ('Hello ' + name + '. Today is ' + myLocalVar + '.');
+  }
+  return innerFunction();
+};
+console.log(closFunc('Lavakesh'));
+
+// boolean types
+let firstBool = false;
+let secondBool = true;
+console.log(firstBool);
+console.log(secondBool);
