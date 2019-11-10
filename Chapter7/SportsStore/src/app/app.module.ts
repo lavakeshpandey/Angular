@@ -7,6 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -14,11 +15,13 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     StoreModule,
     RouterModule.forRoot([
       { path: 'store', component: StoreComponent, canActivate: [StoreFirstGuard] },
       { path: 'cart', component: CartDetailComponent, canActivate: [StoreFirstGuard] },
       { path: 'checkout', component: CheckOutComponent, canActivate: [StoreFirstGuard] },
+      { path: 'admin', loadChildren: './admin/admin.module#AdminModule', canActivate: [StoreFirstGuard] },
       { path: '**', redirectTo: '/store' }
     ])
   ],
