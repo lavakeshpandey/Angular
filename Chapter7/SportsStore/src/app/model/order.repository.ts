@@ -7,14 +7,14 @@ import { Order } from './order.model';
 @Injectable()
 export class OrderRepository {
     private orders: Order[] = [];
-    private loaded: boolean = false;
+    private loaded = false;
 
     constructor(private dataSource: RestDataSource) { }
 
     loadOrders() {
         this.loaded = true;
         this.dataSource.getOrders()
-            .subscribe(order => this.orders = this.orders);
+            .subscribe(order => this.orders = order);
     }
     getOrders(): Order[] {
         if (!this.loaded) {

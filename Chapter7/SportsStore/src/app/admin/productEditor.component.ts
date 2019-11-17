@@ -13,7 +13,7 @@ export class ProductEditorComponent {
     constructor(private repository: ProductRepository, private router: Router, activeRoute: ActivatedRoute) {
         this.editing = activeRoute.snapshot.params["mode"] == 'edit';
         if (this.editing) {
-            Object.assign(this.product, repository.getProducts(activeRoute.snapshot.params['id']));
+            Object.assign(this.product, repository.getProduct(activeRoute.snapshot.params['id']));
         }
     }
     save(form: NgForm) {
